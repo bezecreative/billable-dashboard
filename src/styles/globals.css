@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ring-circumference: 0;
+  --ring-offset: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #0A0B0D;
+  color-scheme: dark;
+}
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background-color: #0A0B0D;
+  color: #E2E8F0;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #111318; }
+::-webkit-scrollbar-thumb { background: #323648; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #454960; }
+
+/* Glass card utility */
+.glass {
+  background: rgba(26, 29, 38, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-highlight {
+  background: rgba(37, 40, 54, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+/* Animated gradient border */
+.gradient-border {
+  position: relative;
+  background: #111318;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(251,191,36,0.4), rgba(139,92,246,0.2), rgba(16,185,129,0.2));
+  z-index: -1;
+}
+
+/* Number ticker */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.count-up { animation: countUp 0.4s ease forwards; }
+
+/* Heatmap cell glow */
+.heat-cell {
+  transition: all 0.2s ease;
+}
+.heat-cell:hover {
+  transform: scale(1.15);
+  z-index: 10;
+}
+
+/* Table row hover */
+.table-row-hover {
+  transition: background 0.15s ease;
+}
+.table-row-hover:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+/* Badge pulse */
+@keyframes badge-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(251,191,36,0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(251,191,36,0); }
+}
+.badge-pulse {
+  animation: badge-pulse 2s ease infinite;
+}

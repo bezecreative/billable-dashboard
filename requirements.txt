@@ -1,0 +1,4 @@
+# No third-party packages required — stdlib only (urllib, json, http.server)
+# Vercel's Python runtime includes the full standard library.
+# If you later switch to Flask, add:
+# flask>=3.0.0
