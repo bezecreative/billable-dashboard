@@ -143,7 +143,7 @@ def build_weekly_history(team_id: str, goal: float = 80.0) -> list:
             int(w_start.timestamp() * 1000),
             int(w_end.timestamp() * 1000),
         )
-        billable = [e for e in entries if e.get("billable") or _tag_is_billable(e)]
+        billable = entries
         total_ms = sum(int(e.get("duration", 0)) for e in billable)
         total_h = round(total_ms / 3_600_000, 2)
         history.append({
